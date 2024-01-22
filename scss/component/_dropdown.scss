@@ -1,0 +1,91 @@
+@use "../abstracts";
+.dropdown {
+  padding-top: 30px;
+  display: none;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  left: 0;
+  @include abstracts.screen(md) {
+    padding-top: 0;
+    position: static;
+  }
+  &__inner {
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    background: #eee;
+    @include abstracts.screen(md) {
+      background: none;
+      padding: 0 0 0 20px;
+      border-radius: 0;
+    }
+  }
+  :hover {
+    display: block;
+  }
+}
+.top-menu {
+  position: relative;
+  &__main {
+    height: calc(min(500px, 100vh - 160px) - 60px);
+    overflow-y: auto;
+    width: 202px;
+    border-right: 2px solid #8f8f8f;
+    @include abstracts.screen(md) {
+      border: none;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+.sub-menu {
+  display: none;
+  position: absolute;
+  grid-template-columns: repeat(3, 1fr);
+  inset: 0 0 0 232px;
+  max-height: calc(min(500px, 100vh - 160px) - 60px);
+  overflow-y: auto;
+  @include abstracts.screen(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include abstracts.screen(md) {
+    position: static;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.menu-column {
+  + .menu-column {
+    margin-top: 30px;
+  }
+  &__heading {
+    color: #0071dc;
+    font-size: 1.9rem;
+    font-weight: 500;
+    line-height: 150%;
+  }
+  &__list {
+    margin-top: 20px;
+    @include abstracts.screen(md) {
+      margin-top: 10px;
+    }
+  }
+  &__link {
+    padding: 7px 0;
+    display: block;
+  }
+  &__link {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 142.857%;
+  }
+  &__item {
+    &--active > .menu-column__link,
+    &:hover > .menu-column__link {
+      color: #0071dc;
+    }
+    &--active .sub-menu {
+      display: grid;
+    }
+  }
+}
