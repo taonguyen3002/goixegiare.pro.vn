@@ -2629,6 +2629,14 @@ html {
   padding-left: 15px;
   margin-top: 60px;
 }
+@media (max-width: 991.98px) {
+  .post__sapo-text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    height: 135px;
+    overflow-y: auto;
+  }
+}
 .post__sapo-text::after {
   content: "";
   position: absolute;
@@ -2639,6 +2647,11 @@ html {
   left: 0;
   top: 50%;
   translate: 0 -50%;
+}
+@media (max-width: 991.98px) {
+  .post__sapo-text::after {
+    height: 135px;
+  }
 }
 .post__media {
   margin-top: 50px;
