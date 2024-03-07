@@ -1,12 +1,65 @@
 @use "../abstracts";
 .slider {
-  background: #01a243;
+  background: #01a2443f;
+  text-align: center;
   &-wrap {
     overflow: hidden;
   }
-  &__list {
-    animation: slideimg 30s infinite;
-    display: flex;
+  &__media-content {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    translate: -50% 50%;
+    @include abstracts.screen(lg) {
+      translate: -50% 30%;
+    }
+    @include abstracts.screen(md) {
+      translate: -50% 0;
+      top: 30px;
+    }
+    @include abstracts.screen(sm) {
+      top: 10px;
+    }
+  }
+  &__heading {
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: #fff;
+    white-space: nowrap;
+    @include abstracts.screen(md) {
+      font-weight: 600;
+      font-size: 2.2rem;
+      width: 370px;
+      white-space: wrap;
+      line-height: 1.4;
+    }
+    @include abstracts.screen(sm) {
+      width: 300px;
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+    }
+  }
+  &__btn {
+    @include abstracts.screen(sm) {
+      height: 40px !important;
+    }
+  }
+  &__desc {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #fff;
+    margin: 30px 0;
+    @include abstracts.screen(md) {
+      width: 370px;
+      font-weight: 500;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      margin: 20px 0;
+    }
+    @include abstracts.screen(sm) {
+      display: none;
+    }
   }
   &__media {
     flex-shrink: 0;
@@ -21,34 +74,5 @@
     position: absolute;
     width: 100%;
     height: 100%;
-  }
-}
-@keyframes slideimg {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-100%);
-  }
-  45% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(-200%);
-  }
-  70% {
-    transform: translateX(-200%);
-  }
-  75% {
-    transform: translateX(-100%);
-  }
-  95% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
   }
 }
